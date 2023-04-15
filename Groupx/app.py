@@ -268,8 +268,11 @@ def delete():
         book_id = userDetails['book_id']
 
         cur = mysql.connection.cursor()
+        cur.execute("LOCK TABLES book WRITE") # Lock the table you want to query
         cur.execute("DELETE FROM book WHERE book_id = %s", [book_id])
+        
         mysql.connection.commit()
+        cur.execute("UNLOCK TABLES")# Unlock the table
         cur.close()
         return redirect("/DBMS")
     return render_template('delete.html')
@@ -285,8 +288,11 @@ def update_user():
         user = cur.fetchone()
 
         if user:
+            cur.execute("LOCK TABLES users WRITE") # Lock the table you want to query
             cur.execute("UPDATE users SET Contact = %s WHERE UserID = %s", [Contact, UserID])
+            
             mysql.connection.commit()
+            cur.execute("UNLOCK TABLES")# Unlock the table
             cur.close()
             flash('User updated successfully!', 'success')
             return redirect("/libuser")
