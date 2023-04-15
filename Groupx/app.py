@@ -47,7 +47,7 @@ def login():
                     session['user'] = True
                     return redirect('/dbmsuser')
             else:
-                return redirect('/')
+                return render_template('loginpage.html', error='User does not exist.')
     return render_template('loginpage.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
