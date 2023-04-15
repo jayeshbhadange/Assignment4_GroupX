@@ -255,8 +255,10 @@ def add():
         Availability_status = userDetails['Availability_status']
         author_id = userDetails['author_id']
         cur = mysql.connection.cursor()
+        cur.execute("LOCK TABLES book WRITE") # Lock the table you want to query
         cur.execute("INSERT INTO book(book_id, title, edition, copies, Availability_status, author_id) VALUES(%s,%s,%s,%s,%s,%s)", (book_id, title, edition, copies, Availability_status, author_id))
         mysql.connection.commit()
+        cur.execute("UNLOCK TABLES")# Unlock the table
         cur.close()
         return redirect('/DBMS')
     return render_template('add.html')
