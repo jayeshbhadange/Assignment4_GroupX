@@ -18,6 +18,8 @@
       <td>Copies</td>
       <td>Availaibility</td>
       <td>Author_ID</td>
+      <td>Section_ID</td>
+      <td>Row_No</td>
   </tr>
     {% for book in rows %}
     <tr>
@@ -27,6 +29,8 @@
       <td> {{book[3]}} </td>
       <td> {{book[4]}} </td>
       <td> {{book[5]}} </td>
+      <td> {{book[6]}} </td>
+      <td> {{book[7]}} </td>
     </tr>
     {% endfor %}
   </table>
