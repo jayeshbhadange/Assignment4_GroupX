@@ -216,7 +216,41 @@ def issue():
         return redirect('/dbmsuser')
     return render_template('issue.html')
 
+@app.route('/publisher', methods =['GET', 'POST'])
+def publisher():
+    if request.method == 'GET':
+        cur  = mysql.connection.cursor()
+        resultvalue = cur.execute("SELECT * from publisher")
+        if(resultvalue > 0):
+            userDetails =  cur.fetchall()
+        return render_template('publisher.html',  userDetails = userDetails)
+    
+@app.route('/shelf', methods =['GET', 'POST'])
+def shelf():
+    if request.method == 'GET':
+        cur  = mysql.connection.cursor()
+        resultvalue = cur.execute("SELECT * from shelf")
+        if(resultvalue > 0):
+            userDetails =  cur.fetchall()
+        return render_template('shelf.html',  userDetails = userDetails)
+@app.route('/publisher_admin', methods =['GET', 'POST'])
+def publisher_admin():
+    if request.method == 'GET':
+        cur  = mysql.connection.cursor()
+        resultvalue = cur.execute("SELECT * from publisher")
+        if(resultvalue > 0):
+            userDetails =  cur.fetchall()
+        return render_template('publisher_admin.html',  userDetails = userDetails)
 
+@app.route('/shelf_admin', methods =['GET', 'POST'])
+def shelf_admin():
+    if request.method == 'GET':
+        cur  = mysql.connection.cursor()
+        resultvalue = cur.execute("SELECT * from shelf")
+        if(resultvalue > 0):
+            userDetails =  cur.fetchall()
+        return render_template('shelf_admin.html',  userDetails = userDetails)
+    
 @app.route('/libuser', methods=['GET', 'POST'])
 def user():
     if request.method == 'GET':
@@ -313,6 +347,13 @@ def authors():
         userDetails =  cur.fetchall()
     return render_template('authors.html',  userDetails = userDetails)
 
+@app.route('/authors_admin')
+def authors_admin():
+    cur  = mysql.connection.cursor()
+    resultvalue = cur.execute("SELECT * from author")
+    if(resultvalue > 0):
+        userDetails =  cur.fetchall()
+    return render_template('authors_admin.html',  userDetails = userDetails)
 
 if __name__ == '__main__':
     app.run(debug=True)
