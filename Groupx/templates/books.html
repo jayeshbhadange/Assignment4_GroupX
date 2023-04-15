@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "static/sheet.css">
+    <title>Books</title>
+</head>
+<body>
+  <div class = "heading">Library Management System</div>
+  <table border = 1>
+    <tr>
+      <td>Book_ID</td>
+      <td>Title</td>
+      <td>Edition</td>
+      <td>Copies</td>
+      <td>Availaibility</td>
+      <td>Author_ID</td>
+  </tr>
+    {% for book in rows %}
+    <tr>
+      <td> {{book[0]}} </td>
+      <td> {{book[1]}} </td>
+      <td> {{book[2]}} </td>
+      <td> {{book[3]}} </td>
+      <td> {{book[4]}} </td>
+      <td> {{book[5]}} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>signup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/loginstyle.CSS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,300&display=swap" rel="stylesheet">   
+</head>
+<body>
+    
+	<div class="signup-page">
+	  <div class="form">
+	    <form class="signup-form" method="POST">
+	      <input type="text" required name="first_name" placeholder="first_name"/>
+          <input type="text" required name="middle_name" placeholder="middle_name"/>
+          <input type="text" required name="last_name" placeholder="last_name"/>
+          <input type="text" required name="email" placeholder="email"/>
+	      <input type="password" required name="password"placeholder="password"/>
+	      <button>submit</button> 
+	    </form>
+      <div class = "container">
+        {% with messages = get_flashed_messages(category_filter = ["error"]) %}
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-danger " role="alert">
+            <span>{{message}}</span>
+          </div>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Issue</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/loginstyle.CSS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,300&display=swap" rel="stylesheet">   
+</head>
+<body>
+  
+
+	<div class="issue">
+	  <div class="form">
+	    <form class="issue" method="POST">
+	      <input type="text" required name="book_id" placeholder="book_id"/>
+	      <button>issue</button> 
+	    </form>
+      <div class = "container">
+        {% with messages = get_flashed_messages(category_filter = ["error"]) %}
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-danger " role="alert">
+            <span>{{message}}</span>
+          </div>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+	  </div>
+	</div>
+</body>
+</html>
+

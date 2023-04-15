@@ -1,0 +1,4 @@
+mysql_host: 'localhost'
+mysql_user: 'root'
+mysql_password: 'G@janan5602'
+mysql_db: 'LibrarySystem'
